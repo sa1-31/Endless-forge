@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Endless Forge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <img src="assets/endless.png" class="logo" />
+
+  <h1>Endless Forge</h1>
+  <p class="subtitle">Builder Verification Engine for the Endless Ecosystem</p>
+
+  <input id="repoInput" placeholder="owner/repository" />
+  <button onclick="runAnalysis()">Analyze Repository</button>
+
+  <div id="loading" class="hidden">Analyzing...</div>
+  <pre id="output"></pre>
+
+</div>
+
+<script src="analyzer.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
