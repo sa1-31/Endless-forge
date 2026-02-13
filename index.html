@@ -12,18 +12,16 @@
   <img src="assets/endless.png" class="logo" />
 
   <h1>Endless Forge</h1>
-  <p class="subtitle">Builder Verification Engine for the Endless Ecosystem</p>
+  <p class="subtitle">Builder Verification Engine</p>
 
   <input id="repoInput" placeholder="owner/repository" />
-  <button onclick="runAnalysis()">Analyze Repository</button>
+  <button id="analyzeBtn">Analyze</button>
 
   <div id="loading" class="hidden">Analyzing...</div>
   <pre id="output"></pre>
 
 </div>
 
-<script src="analyzer.js"></script>
 <script src="app.js"></script>
-
 </body>
 </html>
