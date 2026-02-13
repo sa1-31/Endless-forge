@@ -1,10 +1,13 @@
-import { analyzeRepo } from "./analyzer.js";
+async function runAnalysis() {
 
-window.runAnalysis = async function () {
-
-  const repo = document.getElementById("repoInput").value;
+  const repo = document.getElementById("repoInput").value.trim();
   const loading = document.getElementById("loading");
   const output = document.getElementById("output");
+
+  if (!repo) {
+    output.textContent = "Please enter owner/repository";
+    return;
+  }
 
   loading.classList.remove("hidden");
   output.textContent = "";
@@ -17,4 +20,4 @@ window.runAnalysis = async function () {
   }
 
   loading.classList.add("hidden");
-};
+}
