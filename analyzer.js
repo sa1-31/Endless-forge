@@ -1,8 +1,13 @@
-export async function analyzeRepo(repoFullName) {
+async function analyzeRepo(repoFullName) {
 
   const base = `https://api.github.com/repos/${repoFullName}`;
 
   const repoData = await fetch(base).then(r => r.json());
+
+  if (repoData.message === "Not Found") {
+    throw new Error("Repository not found");
+  }
+
   const contents = await fetch(base + "/contents").then(r => r.json());
 
   const solidityFiles = contents.filter(f =>
@@ -12,6 +17,7 @@ export async function analyzeRepo(repoFullName) {
   let contracts = [];
 
   for (let file of solidityFiles) {
+
     const code = await fetch(file.download_url).then(r => r.text());
 
     const functions = [...code.matchAll(/function\s+(\w+)/g)].map(m => m[1]);
